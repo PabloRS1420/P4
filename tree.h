@@ -1,3 +1,7 @@
+#ifndef TREE_H
+#define TREE_H
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -40,3 +44,5 @@ Status tree_inOrder(FILE* f, const Tree* pa);
 
 /* Muestra el recorrido de un árbol en orden posterior */
 Status tree_postOrder(FILE* f, const Tree* pa);
+
+#endif TREE_H
