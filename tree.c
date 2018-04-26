@@ -15,6 +15,12 @@ struct _Tree {
 };
 
 NodeBT *node_ini() {
+    NodeBT *pn = NULL; 
+    pn = (NodeBT *) malloc(sizeof(NodoAB)); 
+    if (!pn) return NULL;
+    
+    info(pn) = left(pn) = right(pn) = NULL;
+    return pn; 
 }
 
 void node_destroy() {
@@ -34,6 +40,10 @@ Tree *tree_ini(destroy_element_function_type f1, copy_element_function_type f2, 
 }
 
 void tree_destroy(Tree *pa) {
+    if (pn) {
+        element_destroy(info(pn));
+        free(pn);
+    }
 }
 
 Status tree_insert(Tree *pa, const void *po) {
@@ -76,9 +86,22 @@ Bool tree_isEmpty( const Tree* pa) {
 }
 
 int tree_depth(const Tree* pa) {
+    int x = tree_numNodes(pa);
+    int i, j;
+    
+    for(i=1, j=1; x <= i; (i*2)+1, j++)
+    return j;
 }
 
 int tree_numNodes(const Tree* pa) {
+    if (tree_isEmpty(pa) == TRUE) return 0;
+    int i;
+    else {
+        i++;
+        i = tree_numNodes(pa->root->left);
+        i = tree_numNodes(pa->root->right);
+        return OK;
+    }
 }
 
 Status tree_preOrder(FILE* f, const Tree* pa) {
