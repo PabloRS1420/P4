@@ -14,6 +14,12 @@ struct _Tree {
     cmp_element_function_type       cmp_element_function;
 };
 
+NodeBT *node_ini() {
+}
+
+void node_destroy() {
+}
+
 Tree *tree_ini(destroy_element_function_type f1, copy_element_function_type f2, print_element_function_type f3, cmp_element_function_type f4) {
     Tree *t = NULL;
     t = (tree *) malloc(siceof(tree));
@@ -27,16 +33,46 @@ Tree *tree_ini(destroy_element_function_type f1, copy_element_function_type f2, 
     return t;
 }
 
-void tree_destroy(Tree* pa) {
+void tree_destroy(Tree *pa) {
 }
 
-Status tree_insert(Tree* pa, const void* po) {
+Status tree_insert(Tree *pa, const void *po) {
+    if (!pa || !po) return ERROR;
+    return tree_insert_rec(&root(pa), po);
+}
+Status tree_insert_rec(NodeBT **ppn, Element *pe) {
+    int cmp;
+
+    if (*ppn == NULL) {   //Encontrado lugar donde insertar: nodo nuevo apuntado por *ppn
+        *ppn = node_ini();
+        if (*ppn= NULL)  return ERROR;
+        if (((*ppn)->info= element_copy((*ppn)->info, pe)) == NULL) {
+            node_destroy(ppn);
+            return ERROR;
+        }
+        return OK;
+    }
+    // Si todavía no se ha encontrado el hueco donde insertar, buscarlo en subárbol
+    // izquierdo o derecho, según corresponda:
+    cmp = element_copy(pe, info(*ppn));
+    if (cmp < 0) return tree_insert_rec(&izq(*ppn), pe);
+    if (cmp > 0) return tree_insert_rec(&der(*ppn), pe);
+    return OK;
+    // Solo se sale por aquí si el elemento ya estaba en el árbol (cmp = 0)
 }
 
 Bool tree_find(Tree* pa, const void* po) {
+    if ( tree_isEmpty(pa) == TRUE) return NULL_BOOLEAN;
+    else if (pa->root->info == po) return pa;
+    else if (po < pa->root->info) return tree_find(pa->root->left, po)
+    else return tree_find(pa->root->right, po)
 }
 
 Bool tree_isEmpty( const Tree* pa) {
+    if(!pa) return TRUE;
+    
+    if(!pa->root) return TRUE;
+    else return FALSE;
 }
 
 int tree_depth(const Tree* pa) {
@@ -46,10 +82,39 @@ int tree_numNodes(const Tree* pa) {
 }
 
 Status tree_preOrder(FILE* f, const Tree* pa) {
+    if (tree_isEmpty(pa) == TRUE) return ERROR;
+    else {
+        fprintf(f, "%s", pa->root->info);
+        tree_preOrder(f, pa->root->left);
+        tree_preOrder(f, pa->root->right);
+        return OK;
+    }
 }
 
 Status tree_inOrder(FILE* f, const Tree* pa) {
+    if (tree_isEmpty(pa) == TRUE) return ERROR;
+    else {
+        if (tree_isEmpty(pa->root->left) == FALSE){
+            tree_inOrder(f, pa->root->left);
+        }
+        fprintf(f, "%s", pa->root->info);
+        if (tree_isEmpty(pa->root->right) == FALSE){
+            tree_inOrder(f, pa->root->right);
+        }            
+        return OK;
+    }
 }
 
 Status tree_postOrder(FILE* f, const Tree* pa) {
+    if (tree_isEmpty(pa) == TRUE) return ERROR;
+    else {
+        if (tree_isEmpty(pa->root->left) == FALSE){
+            tree_postOrder(f, pa->root->left);
+        }
+        if (tree_isEmpty(pa->root->right) == FALSE){
+            tree_postOrder(f, pa->root->right);
+        }            
+        fprintf(f, "%s", pa->root->info);
+        return OK;
+    }
 }
