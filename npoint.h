@@ -1,4 +1,10 @@
+#ifndef NPOINT_H
+#define NPOINT_H
 
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 typedef struct _NPoint NPoint; 
  
@@ -29,3 +35,6 @@ int npoint_print(FILE *pf, const NPoint *p);
  
 /* Compara p1 con p2 devolviendo un número negativo, cero o positivo según si p1 es menor, igual o mayor que p2 */ 
 int npoint_cmp(const NPoint * p1, const NPoint * p2); 
+
+
+#endif NPOINT_H
