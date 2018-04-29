@@ -40,10 +40,7 @@ Tree *tree_ini(destroy_element_function_type f1, copy_element_function_type f2, 
 }
 
 void tree_destroy(Tree *pa) {
-    if (pn) {
-        element_destroy(info(pn));
-        free(pn);
-    }
+    destroy_element_function((Tree *)pa);
 }
 
 Status tree_insert(Tree *pa, const void *po) {
