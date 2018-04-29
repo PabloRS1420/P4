@@ -15,7 +15,7 @@ void npoint_free(NPoint *);
  
 /* Obtiene la coordenada dim-ésima de p y la almacena en v (que se recibe como puntero para que su contenido se 
 pueda modificar dentro de la función), devolviendo OK si todo va bien */ 
-Status npoint_getCoordinate(const NPoint * p, const int dim, float * v); 
+Status npoint_getCoordinate(const NPoint * p); 
 /* Devuelve el nombre almacenado en p */ 
 const char* npoint_getName(const NPoint * p); 
 /* Devuelve el número de dimensiones de p */ 
