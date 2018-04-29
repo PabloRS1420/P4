@@ -63,7 +63,13 @@ NPoint * npoint_copy(const NPoint * src) {
 }
 
 int npoint_print(FILE *pf, const NPoint *p) {
+    return fprintf(pf, "[(%d,%d): %c]\n", );
 }
 
-int npoint_cmp(const NPoint * p1, const NPoint * p2) {
+int npoint_cmp(const NPoint *p1, const NPoint *p2) {
+    if(!p1||!p2) return NULL;
+    
+    if(p1->coord < p2->coord) return -1;
+    if else(p1->coord == p2->coord) return 0;
+    else return 1;
 }
