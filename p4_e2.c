@@ -32,7 +32,7 @@ int main(int argc, char const *argv[]){
         printf("El dato %d se encuentra dentro del Arbol", x);
     }
     else {
-        printf("El dato %d no se encuentra dentro del Arbol", x);
+        printf("El dato %d NO se encuentra dentro del Arbol", x);
     }
     
 }
