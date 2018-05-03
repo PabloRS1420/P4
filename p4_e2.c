@@ -22,17 +22,17 @@ int main(int argc, char const *argv[]){
     
     printf("> ./p4_e2 numeros.txt");
     x = tree_numNodes(pa);
-    printf("Numero de nodos: %d", x);
+    printf("\nNumero de nodos: %d", x);
     x = tree_depth(pa);
-    printf("Profundidad: %d", x);
-    printf("> Introduzca un numero: ");
+    printf("\nProfundidad: %d", x);
+    printf("\n> Introduzca un numero: ");
     scanf("%d", &x);
-    printf("Numero introducido: %d", x);
+    printf("\nNumero introducido: %d", x);
     if(tree_find(pa, x) == TRUE) {
-        printf("El dato %d se encuentra dentro del Arbol", x);
+        printf("\nEl dato %d se encuentra dentro del Arbol", x);
     }
     else {
-        printf("El dato %d NO se encuentra dentro del Arbol", x);
+        printf("\nEl dato %d NO se encuentra dentro del Arbol", x);
     }
     
 }
