@@ -29,6 +29,7 @@ Point * map_getNeighborPoint(const Map * map, const Point *p, const Move mov);
 Status map_setSize(Map *map, int row, int col);
 Status map_setPoint(Map *map, const Point *p);
 int map_print(FILE *f, const Map *map);
+int map_print2(FILE *f, const Map *map);
 Point *deep_search_pila(Map *map, Point *p);
 Point *deep_search_cola(Map *map, Point *p);
 
