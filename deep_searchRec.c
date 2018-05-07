@@ -1,6 +1,6 @@
 #include "deep_searchRec.h"
 
-Point *deep_searchRec(Map m, Point p_in, Move strategy[4]){
+Point *deep_searchRec(Map *m, Point *p_in, Move strategy[4]){
     if (p_in == NULL) return NULL;
     if (point_isOutput(p_in)) return p_in;
     
