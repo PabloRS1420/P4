@@ -7,6 +7,7 @@
 int main(int argc, char const *argv[]) {
     int nFil, nCol, i, j;
     char symbol;
+    Move strategy[4] = {RIGHT,LEFT,UP,DOWN}; 
     FILE *fp = fopen("argv[1]", "r+");
     if(fp == NULL) {
         printf("Error abriendo el archivo");
@@ -29,4 +30,5 @@ int main(int argc, char const *argv[]) {
     }
     
     pAux = map_getInput(map);
-    pOutput = deep_searchRec(map, pAux, Move strategy[4]);
+    deep_searchRec(map, pAux, strategy[4]);
+}
