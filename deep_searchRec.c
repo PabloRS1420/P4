@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "deep_searchRec.h"
 
 Point *deep_searchRec(Map m, Point p_in, Move strategy[4]){
     if (p_in == NULL) return NULL;
