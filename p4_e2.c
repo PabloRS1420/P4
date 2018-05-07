@@ -33,5 +33,5 @@ int main(int argc, char const *argv[]){
     else {
         printf("\nEl dato %d NO se encuentra dentro del Arbol", x);
     }
-    
+    tree_destroy(pa);
 }
