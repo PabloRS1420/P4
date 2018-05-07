@@ -21,7 +21,6 @@ int main(int argc, char const *argv[]) {
         tree_insert(pa, x);
     }
     
-    printf("> ./p4_e4 numeros.txt");
     x = tree_numNodes(pa);
     printf("\nNumero de nodos: %d", x);
     x = tree_depth(pa);
