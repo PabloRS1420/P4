@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "functions.h"
 
 typedef struct _Tree Tree;
 /* Tipos de los punteros a función soportados por el árbol */
