@@ -15,7 +15,6 @@ int main(int argc, char const *argv[]) {
     }
     Map *map = map_ini();
     Point *pAUX = point_ini(0, 0, +);
-    Point *pOutput = point_ini(0, 0, +);
     fscanf(fp, "%d %d", &nFil, &nCol);
     map_setSize(map, nFil, nCol);
     
@@ -30,5 +29,6 @@ int main(int argc, char const *argv[]) {
     }
     
     pAux = map_getInput(map);
-    deep_searchRec(map, pAux, strategy[4]);
+    pAux = deep_searchRec(map, pAux, strategy[4]);
+    point_print(stdout, pAux);
 }
