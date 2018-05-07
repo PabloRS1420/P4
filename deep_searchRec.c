@@ -7,7 +7,7 @@ Point *deep_searchRec(Map *m, Point *p_in, Move strategy[4]){
     int i;
     Point *pAux  = point_ini(0,0,+);
     Point *p_vecino = point_ini(0,0,+);
-    
+    map_print2(stdout, m);
     point_setSymbol(p_in,VISITED);
     
     for(i=0; i<4; i++) { /*each movement in strategy*/
@@ -21,6 +21,9 @@ Point *deep_searchRec(Map *m, Point *p_in, Move strategy[4]){
                 pAux = deep_searchRec(m, p_vecino, strategy);
                 if (pAux != NULL){
                     fprintf(stdout,"SOLUCIÓN\n");
+                    map_destroy(m);
+                    point_destroy(pAux);
+                    point_destroy(p_vecino);
                     return pAux;
                 }   
             }
