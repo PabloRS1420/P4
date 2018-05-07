@@ -31,4 +31,6 @@ int main(int argc, char const *argv[]) {
     pAux = map_getInput(map);
     pAux = deep_searchRec(map, pAux, strategy[4]);
     point_print(stdout, pAux);
+    point_destroy(pAux);
+    map_destroy(map);
 }
