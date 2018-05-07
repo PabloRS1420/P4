@@ -7,8 +7,6 @@
 #include "npoint.h"
 #include "types.h"
 
-#define MAX_LINE 150
-
 int main(int argc, char const *argv[]) {
     int x;
     Status s;
