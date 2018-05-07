@@ -121,6 +121,16 @@ int map_print(FILE *f, const Map *map){
     return fprintf(f, "Filas: %d, Columnas: %d", map_getNrows(map), map_getNcols(map));
 }
 
+int map_print2(FILE *f, const Map *map){
+    int x = 0, i, j;
+    for(i=0; i<map_getNrows(map); i++){
+        for(j=0; j<map_getNcols(map); j++){
+            x = x + point_print(f, map->point[i][j]);
+        }
+    }
+    return x;
+}
+
 Point *deep_search_pila(Map *map, Point *p){
     Stack *s = stack_ini();
     int i;
