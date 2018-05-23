@@ -38,4 +38,4 @@ int npoint_print(FILE *pf, const NPoint *p);
 int npoint_cmp(const NPoint * p1, const NPoint * p2); 
 
 
-#endif NPOINT_H
+#endif
