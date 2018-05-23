@@ -8,4 +8,4 @@
 
 Point *deep_searchRec(Map *m, Point *p_in, Move strategy[4]);
 
-#endif DEEP_SEARCHREC_H
+#endif
