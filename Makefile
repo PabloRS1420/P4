@@ -21,10 +21,10 @@ p4_e2: $(OBJECTSP1E2)
 p4_e4: $(OBJECTSP4E4)
 	$(CC) $(CFLAGS) -o p4_e4 $(OBJECTSP1E4)
 
-p4_e1.o: p4_e1.c point.h
+p4_e1.o: p4_e1.c deep_searchRec.h
 	$(CC) $(CFLAGS) -c p4_e1.c
 	
-p4_e2.o: p4_e2.c tree.h types.h functions.h
+p4_e2.o: p4_e2.c tree.h types.h
 	$(CC) $(CFLAGS) -c p4_e2.c
 
 p4_e4.o: p4_e4.c tree.h npoint.h types.h
@@ -36,9 +36,21 @@ npoint.o: npoint.c npoint.h functions.h
 tree.o: tree.c tree.h functions.h
 	$(CC) $(CFLAGS) -c tree.c
 
-deep_searchRec.o: deep_searchRec.c deep_searchRec.h map_solver.h
+deep_searchRec.o: deep_searchRec.c deep_searchRec.h
 	$(CC) $(CFLAGS) -c deep_searchRec.c
+
+functions.o: functions.c functions.h
+	$(CC) $(CFLAGS) -c functions.c
+
+map.o: map.c map.h
+	$(CC) $(CFLAGS) -c map.c
 	
+map_solver.o: map_solver.c map_solver.h
+	$(CC) $(CFLAGS) -c map_solver.c
+	
+point.o: point.c point.h
+	$(CC) $(CFLAGS) -c point.c
+
 clear:
 	rm -rf *.o 
 
