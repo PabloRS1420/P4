@@ -10,4 +10,4 @@ void *copy_element_function(const void *e);
 int print_element_function(FILE *f, const void *e);
 int cmp_element_function(const void *e1, const void *e2);
 
-#endif FUNCTIONS_H
+#endif
