@@ -57,7 +57,7 @@ Status tree_insert_rec(NodeBT **ppn, Element *pe) {
     if (*ppn == NULL) {   //Encontrado lugar donde insertar: nodo nuevo apuntado por *ppn
         *ppn = node_ini();
         if (*ppn == NULL)  return ERROR;
-        if (((*ppn)->info == copy_element_function((NodeTB *) pe)) == NULL) {
+        if (((*ppn)->info == copy_element_function((Void *) pe)) == NULL) {
             node_destroy(ppn);
             return ERROR;
         }
