@@ -23,7 +23,11 @@ NodeBT *node_ini() {
     return pn; 
 }
 
-void node_destroy() {
+void node_destroy(NodeBT *pn) {
+    if (pn) {
+        free(pn->info);
+        free(pn);
+    }
 }
 
 Tree *tree_ini(destroy_element_function_type f1, copy_element_function_type f2, print_element_function_type f3, cmp_element_function_type f4) {
@@ -52,8 +56,8 @@ Status tree_insert_rec(NodeBT **ppn, Element *pe) {
 
     if (*ppn == NULL) {   //Encontrado lugar donde insertar: nodo nuevo apuntado por *ppn
         *ppn = node_ini();
-        if (*ppn= NULL)  return ERROR;
-        if (((*ppn)->info= element_copy((*ppn)->info, pe)) == NULL) {
+        if (*ppn == NULL)  return ERROR;
+        if (((*ppn)->info == copy_element_function((NodeTB *) pe)) == NULL) {
             node_destroy(ppn);
             return ERROR;
         }
@@ -61,7 +65,7 @@ Status tree_insert_rec(NodeBT **ppn, Element *pe) {
     }
     // Si todavía no se ha encontrado el hueco donde insertar, buscarlo en subárbol
     // izquierdo o derecho, según corresponda:
-    cmp = element_copy(pe, info(*ppn));
+    cmp = cmp_element_function((Int *)pe, (Int *)info(*ppn));
     if (cmp < 0) return tree_insert_rec(&izq(*ppn), pe);
     if (cmp > 0) return tree_insert_rec(&der(*ppn), pe);
     return OK;
