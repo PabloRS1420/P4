@@ -7,7 +7,7 @@ void destroy_element_function(void *e) {
 void *copy_element_function(const void *e) { 
     int * dst; 
     if (e == NULL) return NULL; 
-    dst = (int*)malloc(sizeof(int)); 
+    dst = (int*)malloc(sizeof(void)); 
     /*Copiamos el elemento*/ 
     *(dst) = *((void*)e); 
     return dst; 
