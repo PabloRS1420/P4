@@ -65,7 +65,7 @@ Status tree_insert_rec(NodeBT **ppn, Element *pe) {
     }
     // Si todavía no se ha encontrado el hueco donde insertar, buscarlo en subárbol
     // izquierdo o derecho, según corresponda:
-    cmp = cmp_element_function((Int *)pe, (Int *)info(*ppn));
+    cmp = cmp_element_function((Void *)pe, (Void *)info(*ppn));
     if (cmp < 0) return tree_insert_rec(&izq(*ppn), pe);
     if (cmp > 0) return tree_insert_rec(&der(*ppn), pe);
     return OK;
